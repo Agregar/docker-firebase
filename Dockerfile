@@ -1,5 +1,5 @@
 # use latest Node LTS (Carbon)
-FROM node:carbon
+FROM node:12
 
 # set user to avoid permission issues
 # (see https://github.com/nodejs/node-gyp/issues/1236)
@@ -10,6 +10,7 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 # install Firebase CLI
 RUN npm install -g firebase-tools
+RUN npm install node-pre-gyp -g
+RUN npm install -g  puppeteer
 
-# reset user back to root
 USER root
